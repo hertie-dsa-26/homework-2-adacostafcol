@@ -1,0 +1,31 @@
+<!-- templates/circle.html -->
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Circle Calculator</h1>
+    
+    <form method="POST">
+        <div class="form-group">
+            <label for="radius">Circle radius:</label>
+            <input type="number" step="any" id="radius" name="radius" required>
+        </div>
+        <button type="submit">Calculate</button>
+    </form>
+    
+    {% if error %}
+    <div class="error">
+        <strong>{{ error }}</strong>
+    </div>
+    {% endif %}
+    
+    {% if result %}
+    <div class="result">
+        <h3>Results:</h3>
+        <p>Radius: <strong>{{ result.radius }}</strong></p>
+        <p>Perimeter (Circumference): <strong>{{ result.perimeter }}</strong></p>
+        <p>Area: <strong>{{ result.area }}</strong></p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
